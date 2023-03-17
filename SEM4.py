@@ -27,15 +27,13 @@ print(final_set)
 import random
 
 num_bush = int(input('Введите количество кустов: '))
-bed_dict = {num_bush: random.randint(10, 50) for num_bush in range(1, num_bush+1)}
-print(bed_dict)
+bed_list = [random.randint(1, 10) for num_bush in range(1, num_bush+1)]
+print(bed_list)
 
-# bush_num = int(input('Введите номер куста: '))
-max_berries = 0
-for i, j in bed_dict.items():
-    max_berries = bed_dict[i-1] + bed_dict[i] + bed_dict[i+2]
-    # elif bush_num == -1:
-    #     max_berries = bush[1] + bush[-1] + bush[-2]
-    # else:
-    #     max_berries = bush[i]
+berries_list = []
+for i in range(len(bed_list)-1):
+    berries_list.append((bed_list[i-1]) + (bed_list[i]) + (bed_list[i+1]))
+print(berries_list)
+
+max_berries = max(berries_list)
 print(max_berries)
